@@ -1,0 +1,49 @@
+:root {
+  --rust: #874A2C;
+  --olive: #636033;
+}
+
+.category-section
+{
+  background-color: #F5F5F5;
+  margin: 50px;
+
+  p {
+    color: var(--olive);
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+    padding: 14px 0;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  grid-gap: 30px;
+  margin: 20px 0;
+}
+
+.category-header {
+  color: var(--olive);
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.card {
+  border-radius: 7px;
+  box-shadow: 2px 10px 15px -3px rgba(0,0,0,0.1);
+  text-align: center;
+
+  img {
+    border-radius: 7px;
+    height: 170px;
+    object-fit: cover;
+  }
+}
+
+.card-title {
+  color: var(--rust);
+  font-weight: 400;
+  padding: 15px;
+}
