@@ -1,0 +1,39 @@
+#footer {
+  background: #F5F5F5;
+  padding: 8px 0;
+  color: #FFFFFF;
+  margin-top: 35px;
+}
+
+.container {
+  width: 1170px;
+}
+
+
+#footer ul {
+  margin-top: 10px;
+}
+
+.list-inline {
+  padding-left: 0;
+  margin-left: -5px;
+  list-style: none;
+}
+
+#footer p {
+  margin-top: 17px;
+}
+
+#footer a {
+  color: grey;
+  letter-spacing: 20px;
+  transition: color 0.5s ease;
+}
+
+#footer a:hover {
+  color: #333333;
+}
+
+p {
+margin: 0 0 10px;
+}
