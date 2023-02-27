@@ -1,1 +1,7 @@
 <h1> Index Page <h1>
+
+<div>
+<% @listings.each do |listing| %>
+  <p><%= listing.title %>,   <%= listing.description %> ($<%= listing.price_per_day %>)</p>
+<% end %>
+</div>
