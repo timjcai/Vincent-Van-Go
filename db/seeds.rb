@@ -69,7 +69,7 @@ def init_seed
       description: create_description,
       price_per_day: set_price_per_day
     }
-    puts new_listing = Listing.new(attributes)
+    new_listing = Listing.new(attributes)
     new_listing.save
   end
 end
