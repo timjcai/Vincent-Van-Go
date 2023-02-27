@@ -62,16 +62,22 @@ def set_price_per_day
   (20..300).to_a.sample
 end
 
+def create_new_listing
+  p attributes = {
+    title: create_title,
+    description: create_description,
+    price_per_day: set_price_per_day
+  }
+  # new_listing = Listings.new(attributes)
+  # new_listing.save
+end
+
 def init_seed
   50.times do
-    attributes = {
-      title: create_title,
-      description: create_description,
-      price_per_day: set_price_per_day
-    }
-    new_listing = Listing.new(attributes)
-    new_listing.save
+    create_new_listing
   end
 end
 
-init_seed
+5.times do
+  create_new_listing
+end
