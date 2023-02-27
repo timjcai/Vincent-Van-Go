@@ -1,1 +1,11 @@
 <h1>show page<h1>
+
+<%= link_to 'Edit', listing_edit_path(@listing) %>
+<%= link_to 'Delete', listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
+<div>
+  <h2><%= @listing.title %></h2>
+  <p><%= @listing.description %></p>
+  <p><%= @listing.price_per_day %></p>
+  <p><%= @listing.user.email %></p>
+</div>
