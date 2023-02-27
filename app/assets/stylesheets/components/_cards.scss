@@ -5,15 +5,12 @@
 
 .category-section
 {
-  padding: 50px 0;
   background-color: #F5F5F5;
-  margin: 0 50px;
+  margin: 50px;
 }
 
 .cards {
   display: grid;
-  align-items: center;
-  justify-content: center;
   grid-template-columns: repeat(4, minmax(200px, 1fr));
   grid-gap: 30px;
   margin: 20px 0;
@@ -29,15 +26,12 @@
   text-align: center;
 
   img {
+    height: 170px;
     background-size: cover;
     object-fit: cover;
     border-radius: 10px;
-    // height: 200px;
-    // width: 200px;
   }
 }
-
-
 
 .card-title {
   color: var(--rust);
