@@ -13,7 +13,7 @@ class ListingsController < ApplicationController
     #get params
     @listing.save
     #redirect to new listing page
-    redirect_to listing_path(@listing)
+    redirect_to listings_path(@listing)
   end
 
   def show

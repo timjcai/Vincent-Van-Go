@@ -8,6 +8,20 @@
 
 require 'faker'
 
+def create_fake_user
+  email = Faker::Internet.email(name: Faker::Name.name)
+  password = Faker::Internet.password(min_length: 8)
+  return user = User.create({ email: email, password: password })
+end
+
+def users_list
+  user_list = []
+  10.times do
+    user_list << create_fake_user
+  end
+  user_list
+end
+
 def create_title
   headline1 =
     ["Cozy Camper", "Hit the Road in Style", "Get Off the Beaten Path", "Unplug and Unwind", "Nomad's Nest",
@@ -66,18 +80,17 @@ def create_new_listing
   p attributes = {
     title: create_title,
     description: create_description,
-    price_per_day: set_price_per_day
+    price_per_day: set_price_per_day,
+    user: create_fake_user
   }
-  # new_listing = Listings.new(attributes)
-  # new_listing.save
+  new_listing = Listing.new(attributes)
+  new_listing.save
 end
 
-def init_seed
+def init_listing_seed
   50.times do
     create_new_listing
   end
 end
 
-5.times do
-  create_new_listing
-end
+init_listing_seed
