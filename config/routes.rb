@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   get 'listings/:id/edit', to: 'listings#edit', as: 'listing_edit'
   patch 'listings/:id', to: 'listings#update'
   delete 'listings/:id', to: 'listings#destroy'
+  get 'bookings', to: 'bookings#index'
+  get 'listings/:id/bookings/new', to: 'bookings#new', as: 'new_booking'
+  post 'listings/:id/bookings', to: 'bookings#create'
 end
