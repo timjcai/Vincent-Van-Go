@@ -11,7 +11,9 @@ class ListingsController < ApplicationController
     #create new listing
     @listing = Listing.new(listing_params)
     #get params
+    @listing.save
     #redirect to new listing page
+    redirect_to listing_path(@listing)
   end
 
   def show
@@ -21,6 +23,6 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params(:listing).require(:title, :description, :price_per_day)
+    params.require(:listing).permit(:title, :description, :price_per_day)
   end
 end
