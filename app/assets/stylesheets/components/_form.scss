@@ -1,0 +1,34 @@
+:root {
+  --rust: #874A2C;
+  --olive: #636033;
+  --poppins: 'Poppins', sans-serif;
+}
+
+.form-horizontal {
+  font-family: var(--poppins);
+  color: var(--olive);
+  font-size: 24px;
+  font-weight: 500;
+
+  .btn {
+    // background-color: var(--rust);
+    background-color: #8c8634;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 10px 20px;
+    margin: 20px 0;
+  }
+
+  input {
+    padding: 15px 10px;
+  }
+}
+
+.header {
+  margin: 20px 0;
+  color: #393724;
+  font-family: var(--poppins);
+}
