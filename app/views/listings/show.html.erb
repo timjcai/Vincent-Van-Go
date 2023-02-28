@@ -5,8 +5,6 @@
 
 <% if @listing.photo.key? %>
   <%= cl_image_tag @listing.photo.key, width: 400, height: 300, crop: :lfill %>
-<% else %>
-  <%= cl_image_tag("zyac7mhjaxft2h0stzhk", width: 400, height: 300, crop: :lfill) %>
 <% end %>
 
 <div>
