@@ -5,9 +5,6 @@
 <%# Form currently not working %>
 
 <%= simple_form_for [@listing, @booking] do |f| %>
-  <%= f.input :user_id %>
-  <%= f.input :listing_id %>
-  <%# f.input :availability %>
   <%= f.text_field :booking_date,
   data: {
     controller: "flatpickr",
