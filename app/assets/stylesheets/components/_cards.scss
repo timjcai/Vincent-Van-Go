@@ -1,6 +1,7 @@
 :root {
   --rust: #874A2C;
   --olive: #636033;
+  --poppins: 'Poppins', sans-serif;
 }
 
 .category-section
@@ -45,5 +46,6 @@
 .card-title {
   color: var(--rust);
   font-weight: 400;
+  font-family: var(--poppins);
   padding: 15px;
 }
