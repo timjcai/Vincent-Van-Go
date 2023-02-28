@@ -5,7 +5,6 @@
 }
 
 .form-horizontal {
-  margin: 0 200px;
   font-family: var(--poppins);
   color: var(--olive);
   font-size: 24px;
@@ -21,4 +20,14 @@
     padding: 10px 20px;
     margin: 20px 0;
   }
+
+  input {
+    padding: 15px 10px;
+  }
+}
+
+.header {
+  margin: 20px 0;
+  color: #393724;
+  font-family: var(--poppins);
 }
