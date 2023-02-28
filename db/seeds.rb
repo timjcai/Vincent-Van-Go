@@ -22,7 +22,12 @@ def users_list
   user_list
 end
 
-def create_title
+def types_of_vans
+  ["Class A Motorhome", "Class B Camper Van", "Class C Motorhome", "Converted Bus", "Pop-up Camper", "Truck Camper",
+   "Teardrop Trailer", "Fifth Wheel Trailer", "Travel Trailer", "Toy Hauler"].sample
+end
+
+def create_title(types_of_vans)
   headline1 =
     ["Cozy Camper", "Hit the Road in Style", "Get Off the Beaten Path", "Unplug and Unwind", "Nomad's Nest",
      "The Ultimate Road Trip", "Experience the Great Outdoors in Our Modern Mobile Home", "Van Life Vibes", "Escape the Ordinary", "A Room with a View",
@@ -30,10 +35,15 @@ def create_title
      "Go Anywhere, Sleep Anywhere", "Van Life Dreams", "On the Move", "The Ultimate Camping Experience", "Van-tastic Adventures"
   ]
   city = Faker::Address.city
-  types_of_vans =
-    ["Class A Motorhome", "Class B Camper Van", "Class C Motorhome", "Converted Bus", "Pop-up Camper", "Truck Camper",
-     "Teardrop Trailer", "Fifth Wheel Trailer", "Travel Trailer", "Toy Hauler"]
-  "#{headline1.sample}: #{types_of_vans.sample} - #{city}"
+  "#{headline1.sample}: #{types_of_vans} - #{city}"
+end
+
+def true_false
+  [true, false].sample
+end
+
+def size_capacity
+  (2..6).to_a.sample
 end
 
 def create_description
@@ -78,9 +88,13 @@ end
 
 def create_new_listing
   p attributes = {
-    title: create_title,
+    title: create_title(types_of_vans),
     description: create_description,
     price_per_day: set_price_per_day,
+    pet_friendly: true_false,
+    luxury: true_false,
+    capacity: size_capacity,
+    vehicle_type: types_of_vans,
     user: create_fake_user
   }
   new_listing = Listing.new(attributes)
@@ -88,7 +102,7 @@ def create_new_listing
 end
 
 def init_listing_seed
-  50.times do
+  20.times do
     create_new_listing
   end
 end

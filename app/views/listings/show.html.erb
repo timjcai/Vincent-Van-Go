@@ -12,7 +12,10 @@
 <div>
   <h2><%= @listing.title %></h2>
   <p><%= @listing.description %></p>
-  <p><%= @listing.price_per_day %></p>
+  <p>pet-friendly?: <%= @listing.pet_friendly %></p>
+  <p>luxury: <%= @listing.luxury %></p>
+  <p>max # people: <%= @listing.capacity %></p>
+  <p><%= @listing.vehicle_type %></p>
   <p><%= @listing.user.email %></p>
 </div>
 
