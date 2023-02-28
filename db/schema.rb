@@ -65,6 +65,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_012952) do
     t.string "title"
     t.string "description"
     t.float "price_per_day"
+    t.boolean "pet_friendly"
+    t.boolean "luxury"
+    t.integer "capacity"
+    t.string "vehicle_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
