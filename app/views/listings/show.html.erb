@@ -3,9 +3,11 @@
 <%= link_to 'Edit', listing_edit_path(@listing) %>
 <%= link_to 'Delete', listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 
-
-<%= cl_image_tag @listing.photo.key, width: 400, height: 300, crop: :lfill %>
-
+<% if @listing.photo.key? %>
+  <%= cl_image_tag @listing.photo.key, width: 400, height: 300, crop: :lfill %>
+<% else %>
+  <%= cl_image_tag("zyac7mhjaxft2h0stzhk", width: 400, height: 300, crop: :lfill) %>
+<% end %>
 <div>
   <h2><%= @listing.title %></h2>
   <p><%= @listing.description %></p>
