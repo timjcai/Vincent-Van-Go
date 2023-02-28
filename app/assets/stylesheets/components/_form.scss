@@ -1,0 +1,13 @@
+:root {
+  --rust: #874A2C;
+  --olive: #636033;
+  --poppins: 'Poppins', sans-serif;
+}
+
+.form-horizontal {
+  margin: 0 200px;
+  font-family: var(--poppins);
+  .form-inputs {
+    margin-bottom: 0;
+  }
+}
