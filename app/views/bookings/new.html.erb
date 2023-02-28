@@ -1,0 +1,18 @@
+<h1>Booking Page<h1>
+<%= @listing.title %>
+<a><%= link_to 'Back to listing', listing_path(@listing) %></a>
+
+<%# Form currently not working %>
+
+<%= simple_form_for [@listing, @booking] do |f| %>
+  <%= f.text_field :booking_date,
+  data: {
+    controller: "flatpickr",
+    flatpickr_disabled_dates_value: @listing.availabilities.where(available: false).map{|avail| avail.date.to_s}
+  } %>
+  <%= f.submit %>
+<% end %>
+
+<%= form_with model: @booking, authenticity_token: true do |f| %>
+
+<% end %>

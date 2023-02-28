@@ -1,15 +1,13 @@
 :root {
-  --rust: #874A2C;
-  --olive: #636033;
+  --poppins: 'Poppins', sans-serif;
 }
 
 .category-section
 {
   background-color: #F5F5F5;
-  margin: 50px;
 
   p {
-    color: var(--olive);
+    color: $olive;
     font-size: 18px;
     font-weight: 400;
     margin: 0;
@@ -25,9 +23,10 @@
 }
 
 .category-header {
-  color: var(--olive);
+  color: $olive;
   font-weight: 700;
   font-size: 40px;
+  margin-top: 40px;
 }
 
 .card {
@@ -43,7 +42,8 @@
 }
 
 .card-title {
-  color: var(--rust);
+  color: $rust;
   font-weight: 400;
+  font-family: var(--poppins);
   padding: 15px;
 }
