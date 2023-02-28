@@ -1,20 +1,40 @@
-<h1>show page<h1>
-
-<%= link_to 'Edit', listing_edit_path(@listing) %>
-<%= link_to 'Delete', listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<head>
+  <%= stylesheet_link_tag 'show' %>
+</head>
 
 <% if @listing.photo.key? %>
   <%= cl_image_tag @listing.photo.key, width: 400, height: 300, crop: :lfill %>
 <% end %>
+<div class="listing" style="margin-top: 50px;">
+  <div class="listing__header">
+    <h1 class="listing__title"><%= @listing.title %></h1>
+    <p class="listing__location"><%= @listing.title.split(", ").first %></p>
+  </div>
 
-<div>
-  <h2><%= @listing.title %></h2>
-  <p><%= @listing.description %></p>
-  <p>pet-friendly?: <%= @listing.pet_friendly %></p>
-  <p>luxury: <%= @listing.luxury %></p>
-  <p>max # people: <%= @listing.capacity %></p>
-  <p><%= @listing.vehicle_type %></p>
-  <p><%= @listing.user.email %></p>
-</div>
+  <div class="listing__details">
+    <p class="listing__price"><strong>Price:</strong> <%= number_to_currency(@listing.price_per_day) %> per day</p>
+    <p class="listing__user"><strong>Contact:</strong> <%= @listing.user.email %></p>
+  </div>
 
-<%= link_to 'Request Booking',  bookings_path(@listing) %>
+  <div class="listing__description">
+    <p><%= @listing.description %></p>
+  </div>
+
+  <div class="listing__actions">
+    <%= link_to 'Edit', listing_edit_path(@listing), class: 'button button--edit' %>
+    <%= link_to 'Delete', listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'button button--delete' %>
+  </div>
+  
+  <div>
+    <p>pet-friendly?: <%= @listing.pet_friendly %></p>
+    <p>luxury: <%= @listing.luxury %></p>
+    <p>max # people: <%= @listing.capacity %></p>
+    <p><%= @listing.vehicle_type %></p>
+    <p><%= @listing.user.email %></p>
+  </div>
+  
+  <%= link_to 'Request Booking',  bookings_path(@listing) %>
+=======
+
+
+
