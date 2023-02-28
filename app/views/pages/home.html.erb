@@ -1,4 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to 'listings', listings_path %>
-<%= render "listings/cards" %>
+<div class="container">
+  <h2 class="category-header">VanGo Adventure starts here</h2>
+  <p>Find the perfect campervan, motorhome or caravan to hire for your next holiday.</p>
+  <div class="row">
+    <div class="col-lg-12">
+      <%= render "listings/cards" %>
+    </div>
+  </div>
+</div>
