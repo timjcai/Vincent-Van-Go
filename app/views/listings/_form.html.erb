@@ -1,8 +1,9 @@
-<%= simple_form_for(@listing, :html => { :class => 'form-horizontal' }) do |f| %>
-<div class="form-inputs">
-  <%= f.input :title, placeholder: 'Caravan' %>
-  <%= f.input :description, placeholder: 'Two beds, kitchen, bath and fridge'%>
-  <%= f.input :price_per_day, placeholder: '$' %>
-  <%= f.submit class: 'btn' %>
-</div>
-    <% end %>
+  <%= simple_form_for(@listing, :html => { :class => 'form-horizontal' }) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :title, placeholder: 'Caravan' %>
+    <%= f.input :description, placeholder: 'Two beds, kitchen, bath and fridge'%>
+    <%= f.input :price_per_day, placeholder: '$' %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit class: 'btn' %>
+  </div>
+      <% end %>
