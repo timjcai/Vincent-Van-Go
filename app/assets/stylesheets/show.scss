@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Circular&display=swap');
+
+
+/* the listin */
+
+.listing {
+  max-width: 800px;
+  margin: 80px auto 30px;
+  padding: 30px;
+  background-color: #FCF3CF;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 5px;
+}
+
+.listing h1 {
+  font-family: 'Circular', sans-serif;
+  color: #6E2C00;
+  font-size: 30px;
+  margin-bottom: 20px;
+
+}
+
+.listing p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  color: #556b2f;
+}
+
+.listing .actions {
+  margin-top: 30px;
+}
+
+/* the buttons */
+.listing a {
+   color: #784212;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.listing a:hover {
+  opacity: 1;
+}
+
+.listing .price {
+  font-weight: bold;
+}
+
+.listing .contact {
+  font-weight: bold;
+  margin-top: 20px;
+}
