@@ -4,17 +4,18 @@
 
 <%# Form currently not working %>
 
-<%= simple_form_for [@booking, @listing] do |f| %>
+<%= simple_form_for [@listing, @booking] do |f| %>
   <%= f.input :user_id %>
   <%= f.input :listing_id %>
+  <%# f.input :availability %>
+  <%= f.text_field :booking_date,
+  data: {
+    controller: "flatpickr",
+    flatpickr_disabled_dates_value: @listing.availabilities.where(available: false).map{|avail| avail.date.to_s}
+  } %>
   <%= f.submit %>
 <% end %>
 
-<%= form_with model: Booking.new, authenticity_token: true do |f| %>
-  <%= f.text_field :booking_date,
-    data: {
-      controller: "flatpickr",
-      flatpickr_date_format: "Y-m-d",
-      flatpickr_min_date: Time.zone.now
-    } %>
+<%= form_with model: @booking, authenticity_token: true do |f| %>
+
 <% end %>

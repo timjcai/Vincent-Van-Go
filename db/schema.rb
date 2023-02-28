@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_012952) do
 
   create_table "availabilities", force: :cascade do |t|
     t.boolean "available"
-    t.datetime "date"
+    t.date "date"
     t.bigint "listing_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
