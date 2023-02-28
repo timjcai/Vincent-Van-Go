@@ -7,7 +7,18 @@
 .form-horizontal {
   margin: 0 200px;
   font-family: var(--poppins);
-  .form-inputs {
-    margin-bottom: 0;
+  color: var(--olive);
+  font-size: 24px;
+  font-weight: 500;
+
+  .btn {
+    background-color: var(--rust);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 10px 20px;
+    margin: 20px 0;
   }
 }
