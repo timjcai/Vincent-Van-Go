@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
     @listing = Listing.find(params[:id])
     @booking = Booking.new
     @booking.listing = @listing
+    @availability = Availability.where(booking_id: @booking)
   end
 
   def index
@@ -16,10 +17,8 @@ end
     @booking_date = booking_params[:booking_date]
     p @blocked_dates = convert_range_to_array(@booking_date)
     @blocked_dates.each do |date|
-      p @booking = Booking.create(user_id: current_user.id, listing: @listing, booking_date: date)
-    end
-    @blocked_dates.each do |date|
-      @availabilities = Availability.create(available: false, date: date, listing: @listing)
+      @booking = Booking.create(user_id: current_user.id, listing: @listing, booking_date: date)
+      @availabilities = Availability.create(available: false, date: date, booking_id: @booking.id, listing_id: @booking.listing.id)
     end
     redirect_to listing_path(@listing)
   end
