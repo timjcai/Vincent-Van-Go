@@ -1,24 +1,33 @@
 class BookingsController < ApplicationController
   def new
-    @user = User.find(params[:id])
+    @user = current_user
     @listing = Listing.find(params[:id])
     @booking = Booking.new
     @booking.listing = @listing
   end
 
   def index
+    @listing = Listing.find(params[:id])
+    @bookings = Booking.all
   end
 
   def create
     @listing = Listing.find(params[:id])
-    @booking = Booking.new(booking_params)
-    @booking.save
     @booking_date = booking_params[:booking_date]
-    @blocked_dates = convert_range_to_array(@booking_date)
+    p @blocked_dates = convert_range_to_array(@booking_date)
+    @blocked_dates.each do |date|
+      p @booking = Booking.create(user_id: current_user.id, listing: @listing, booking_date: date)
+    end
     @blocked_dates.each do |date|
       @availabilities = Availability.create(available: false, date: date, listing: @listing)
     end
-    redirect_to listings_path(@listings)
+    redirect_to listing_path(@listing)
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to all_bookings_path
   end
 
   private
@@ -28,8 +37,8 @@ class BookingsController < ApplicationController
   end
 
   def convert_range_to_array(str)
-    p a = str.split(" to ")
-    p a.map { |date| date.to_date }
-    p (a[0]..a[1]).to_a
+    a = str.split(" to ")
+    a.map { |date| date.to_date }
+    (a[0]..a[1]).to_a
   end
 end

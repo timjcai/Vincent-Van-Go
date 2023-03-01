@@ -54,7 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_012952) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "listing_id", null: false
-    t.datetime "booking_date"
+    t.date "booking_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["listing_id"], name: "index_bookings_on_listing_id"

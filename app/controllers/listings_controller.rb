@@ -20,6 +20,7 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+    @booking = Booking.where(listing_id: @listing.id)
   end
 
   def edit

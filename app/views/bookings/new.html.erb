@@ -5,14 +5,12 @@
 <%# Form currently not working %>
 
 <%= simple_form_for [@listing, @booking] do |f| %>
+  <%=f.hidden_field :user_id, :value => current_user.id %>
+  <%=f.hidden_field :listing_id, :value => @listing.id %>
   <%= f.text_field :booking_date,
   data: {
     controller: "flatpickr",
     flatpickr_disabled_dates_value: @listing.availabilities.where(available: false).map{|avail| avail.date.to_s}
   } %>
   <%= f.submit %>
-<% end %>
-
-<%= form_with model: @booking, authenticity_token: true do |f| %>
-
 <% end %>
