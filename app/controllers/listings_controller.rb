@@ -38,7 +38,12 @@ class ListingsController < ApplicationController
     redirect_to listings_path
   end
 
+  def mine
+    @listings = Listing.where(user_id: current_user.id)
+  end
+
   private
+
   def set_listing
     @listing = Listing.find(params[:id])
     @user = User

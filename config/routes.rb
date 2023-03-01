@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   get 'listings', to: 'listings#index'
   get 'listings/new', to: 'listings#new'
+  get 'listings/my_listings', to: 'listings#mine', as: 'my_listings'
   post 'listings', to: 'listings#create'
   get 'listings/:id', to: 'listings#show', as: 'listing'
   get 'listings/:id/edit', to: 'listings#edit', as: 'listing_edit'
