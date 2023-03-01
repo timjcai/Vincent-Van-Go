@@ -17,16 +17,12 @@ export default class extends Controller {
         container: this.element,
         center: this.centerValue,
         zoom: 10,
-        style: "mapbox://styles/georgekettle/cleow2ltz000001qp1430ze85",
-        // style: 'mapbox://styles/mapbox/satellite-streets-v12',
-        pitch: 80,
+        style: 'mapbox://styles/mapbox/streets-v12',
       })
     } else {
       this.map = new mapboxgl.Map({
         container: this.element,
-        style: "mapbox://styles/georgekettle/cleow2ltz000001qp1430ze85",
-        // style: 'mapbox://styles/mapbox/satellite-streets-v12',
-        pitch: 80,
+        style: 'mapbox://styles/mapbox/streets-v12',
       })
     }
 
