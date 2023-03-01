@@ -1,0 +1,8 @@
+<h1> all bookings <h1>
+<%= link_to 'Back to listing', listing_path(@listing)%>
+<% @bookings.each do |booking| %>
+  <p>
+    <%= booking.booking_date %> <%= booking.user.email %>
+    <%= link_to 'Delete', listing_bookings_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'button button--delete' %>
+  </p>
+<% end %>

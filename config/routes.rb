@@ -7,12 +7,14 @@ Rails.application.routes.draw do
   # root "articles#index"
   get 'listings', to: 'listings#index'
   get 'listings/new', to: 'listings#new'
+  get 'listings/my_listings', to: 'listings#mine', as: 'my_listings'
   post 'listings', to: 'listings#create'
   get 'listings/:id', to: 'listings#show', as: 'listing'
   get 'listings/:id/edit', to: 'listings#edit', as: 'listing_edit'
   patch 'listings/:id', to: 'listings#update'
   delete 'listings/:id', to: 'listings#destroy'
-  get 'listings/:id/bookings', to: 'bookings#index'
+  get 'listings/:id/bookings', to: 'bookings#index', as: 'all_bookings'
   get 'listings/:id/bookings/new', to: 'bookings#new', as: 'bookings'
   post 'listings/:id/bookings', to: 'bookings#create', as: 'listing_bookings'
+  delete 'listings/:id/bookings', to: 'bookings#destroy'
 end
