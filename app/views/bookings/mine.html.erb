@@ -3,19 +3,27 @@
 </head>
 
 <div class="container">
+  <br>
+  <div>
   <h1>My bookings</h1>
   <%= @user.email %>
+  </div>
+  <br>
   <% @bookings.each do |booking| %>
     <div class="card-product">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
       <div class="container">
         <div class="card-product-infos">
-          <h3><%= Listing.find(booking.listing_id).title %></h3>
+          <div style="display: flex; justify-content: space-between; ">
+            <h3><%= Listing.find(booking.listing_id).title %></h3>
+            <%= link_to all_bookings_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'button button--delete' do %>
+              <i class="fa-solid fa-trash" style="color: black"></i>
+            <% end %>
+          </div>
           <div style="display: flex; justify-content: space-between; ">
             <p><%= booking.booking_date %></p>
             <p>$<%= Listing.find(booking.listing_id).price_per_day %>0 AUD/day</p>
           </div>
-
         </div>
       </div>
     </div>
