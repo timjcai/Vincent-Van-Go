@@ -30,6 +30,11 @@ end
     redirect_to all_bookings_path(@listing.id)
   end
 
+  def mine
+    @user = current_user
+    @bookings = Booking.where(user_id: @user.id)
+  end
+
   private
 
   def booking_params
@@ -37,8 +42,14 @@ end
   end
 
   def convert_range_to_array(str)
-    a = str.split(" to ")
-    a.map { |date| date.to_date }
-    (a[0]..a[1]).to_a
+    if str == ""
+      return ""
+    elsif str.size < 10
+      return str
+    else
+      a = str.split(" to ")
+      a.map { |date| date.to_date }
+      (a[0]..a[1]).to_a
+    end
   end
 end

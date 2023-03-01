@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'listings', to: 'listings#index'
   get 'listings/new', to: 'listings#new'
   get 'listings/my_listings', to: 'listings#mine', as: 'my_listings'
+  get 'listings/my_bookings', to: 'bookings#mine', as: 'my_bookings'
   post 'listings', to: 'listings#create'
   get 'listings/:id', to: 'listings#show', as: 'listing'
   get 'listings/:id/edit', to: 'listings#edit', as: 'listing_edit'
