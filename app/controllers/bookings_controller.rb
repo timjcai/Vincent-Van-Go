@@ -25,8 +25,9 @@ end
 
   def destroy
     @booking = Booking.find(params[:id])
+    @listing = Listing.find(@booking.listing_id)
     @booking.destroy
-    redirect_to all_bookings_path
+    redirect_to all_bookings_path(@listing.id)
   end
 
   private
