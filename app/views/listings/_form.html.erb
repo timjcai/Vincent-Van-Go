@@ -4,6 +4,7 @@
     <%= f.input :description, placeholder: 'Two beds, kitchen, bath and fridge'%>
     <%= f.input :price_per_day, placeholder: '$' %>
     <%= f.input :photo, as: :file %>
+    <%=f.hidden_field :user_id, :value => current_user.id %>
     <%= f.submit class: 'btn' %>
   </div>
       <% end %>

@@ -21,20 +21,7 @@
   </div>
 
   <div class="listing__actions">
+    <%= link_to 'Request Booking',  bookings_path(@listing) %>
     <%= link_to 'Edit', listing_edit_path(@listing), class: 'button button--edit' %>
     <%= link_to 'Delete', listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'button button--delete' %>
   </div>
-  
-  <div>
-    <p>pet-friendly?: <%= @listing.pet_friendly %></p>
-    <p>luxury: <%= @listing.luxury %></p>
-    <p>max # people: <%= @listing.capacity %></p>
-    <p><%= @listing.vehicle_type %></p>
-    <p><%= @listing.user.email %></p>
-  </div>
-  
-  <%= link_to 'Request Booking',  bookings_path(@listing) %>
-=======
-
-
-

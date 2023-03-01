@@ -91,10 +91,10 @@ def create_new_listing
     title: create_title(types_of_vans),
     description: create_description,
     price_per_day: set_price_per_day,
-    pet_friendly: true_false,
-    luxury: true_false,
-    capacity: size_capacity,
-    vehicle_type: types_of_vans,
+    # pet_friendly: true_false,
+    # luxury: true_false,
+    # capacity: size_capacity,
+    # vehicle_type: types_of_vans,
     user: create_fake_user
   }
   new_listing = Listing.new(attributes)
