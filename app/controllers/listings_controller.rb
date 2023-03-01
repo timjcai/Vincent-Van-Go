@@ -10,12 +10,14 @@ class ListingsController < ApplicationController
   end
 
   def create
-    #create new listing
+    # create new listing
     @listing = Listing.new(listing_params)
-    #get params
-    @listing.save
-    #redirect to new listing page
-    redirect_to listing_path(@listing)
+    # get params
+    if @listing.save
+      redirect_to listing_path(@listing)
+    end
+    # redirect to new listing page
+    #
   end
 
   def show
