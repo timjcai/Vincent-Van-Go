@@ -2,21 +2,25 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.cards {
+  padding-bottom: 35px;
+}
+
 .card {
     list-style: none;
     margin: 0;
   }
 
   a {
+    color: $olive;
     display: inline-block;
     text-decoration: none;
-    color: $olive;
   }
 
 .price {
-  padding-top: 10px;
   font-size: 16px;
   font-weight: 600;
+  padding-top: 10px;
 }
 
 .price small {
