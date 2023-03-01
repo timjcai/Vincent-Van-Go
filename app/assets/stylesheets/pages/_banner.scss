@@ -1,0 +1,19 @@
+.container-fluid {
+  padding: 0;
+}
+
+.banner {
+  background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https://images.pexels.com/photos/5480740/pexels-photo-5480740.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+
+  .banner-txt {
+    color: #e6e2aa;
+    font-family: 'Poppins', sans-serif;
+    font-size: 60px;
+    font-weight: 800;
+    text-align: center;
+    padding: 230px 0;
+  }
+}
