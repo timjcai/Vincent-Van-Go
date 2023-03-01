@@ -12,15 +12,15 @@ body {
   }
 
   a {
+    color: $olive;
     display: inline-block;
     text-decoration: none;
-    color: $olive;
   }
 
 .price {
-  padding-top: 10px;
   font-size: 16px;
   font-weight: 600;
+  padding-top: 10px;
 }
 
 .price small {
