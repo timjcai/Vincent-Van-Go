@@ -5,6 +5,7 @@ class Listing < ApplicationRecord
   has_one_attached :photo
 
   validates :title, presence: true
+  validates :address, presence: true
   validates :description, presence: true
   validates :price_per_day, presence: true
 
