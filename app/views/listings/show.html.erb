@@ -35,10 +35,11 @@
   </div>
 </div>
 
-
-
-<div style="width: 50%; height: 400px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-center-value="<%= @center.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<div class="container map-container">
+  <h2 class="map-title">Location</h2>
+  <div class="map"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-center-value="<%= @center.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>
