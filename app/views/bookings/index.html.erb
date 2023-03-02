@@ -1,8 +1,31 @@
-<h1> all bookings <h1>
-<%= link_to 'Back to listing', listing_path(@listing)%>
-<% @bookings.each do |booking| %>
-  <p>
-    <%= booking.booking_date %> <%= booking.user.email %>
-    <%= link_to 'Delete', all_bookings_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'button button--delete' %>
-  </p>
-<% end %>
+<head>
+  <%= stylesheet_link_tag 'mine' %>
+</head>
+
+<div class="container">
+  <br>
+  <h1> All bookings <h1>
+  <p><%= link_to 'Back to listing', listing_path(@listing)%></p>
+  <% @bookings.each do |booking| %>
+    <div class="card-product">
+    <% if Listing.find(booking.listing_id).photo.attached? %>
+      <%= cl_image_tag Listing.find(booking.listing_id).photo.key, width: 400, height: 300, crop: :fit %>
+    <% end %>
+      <div class="container">
+        <div class="card-product-infos">
+          <div style="display: flex; justify-content: space-between; ">
+            <h3><%= Listing.find(booking.listing_id).title %></h3>
+            <%= link_to delete_bookings_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, remote: true, class: 'button button--delete' do %>
+              <i class="fa-solid fa-trash" style="color: black"></i>
+            <% end %>
+          </div>
+          <div style="display: flex; justify-content: space-between; ">
+            <p><%= booking.booking_date %></p>
+            <p><%= booking.user.email %></p>
+            <p>$<%= Listing.find(booking.listing_id).price_per_day %>0 AUD/day</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
