@@ -17,7 +17,9 @@
       <div class="container">
         <div class="card-product-infos">
           <div style="display: flex; justify-content: space-between; ">
-            <h3><%= Listing.find(booking.listing_id).title %></h3>
+            <%= link_to listing_path(Listing.find(booking.listing_id)) do %>
+              <h3><%= Listing.find(booking.listing_id).title %></h3>
+            <% end %>
             <%= link_to delete_bookings_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, remote: true, class: 'button button--delete' do %>
               <i class="fa-solid fa-trash" style="color: black"></i>
             <% end %>
