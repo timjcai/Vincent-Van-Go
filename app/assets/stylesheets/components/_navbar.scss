@@ -3,6 +3,14 @@
   background: #ECF0F1;
 }
 
+ul {
+  align-items: center;
+
+  li:not(:nth-child(4)) {
+    padding-right: 15px
+  }
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
