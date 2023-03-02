@@ -14,14 +14,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-              <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
           <li class="nav-item">
             <%= link_to "View Vans", listings_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "My Vans", my_listings_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "List Your Van", listings_new_path, class: "nav-link" %>
@@ -29,6 +23,8 @@
           <li class="nav-item dropdown">
             <%= image_tag "https://hips.hearstapps.com/ame-prod-menshealth-assets.s3.amazonaws.com/main/embedded/30587/Smilingman.jpg?resize=480:*", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Manage my trips",  my_bookings_path, class: "dropdown-item" %>
+              <%= link_to "Manage my listings", my_listings_path, class: "dropdown-item" %>
               <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "View Listings", listings_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>

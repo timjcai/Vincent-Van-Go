@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
   def index
     @listing = Listing.find(params[:id])
     @bookings = Booking.where(listing: @listing)
-end
+  end
 
   def create
     @listing = Listing.find(params[:id])
@@ -27,7 +27,12 @@ end
     @booking = Booking.find(params[:id])
     @listing = Listing.find(@booking.listing_id)
     @booking.destroy
-    redirect_to all_bookings_path(@listing.id)
+    redirect_back(fallback_location: root_path)
+  end
+
+  def mine
+    @user = current_user
+    @bookings = Booking.where(user_id: @user.id)
   end
 
   private
@@ -37,8 +42,14 @@ end
   end
 
   def convert_range_to_array(str)
-    a = str.split(" to ")
-    a.map { |date| date.to_date }
-    (a[0]..a[1]).to_a
+    if str == ""
+      return ""
+    elsif str.size < 10
+      return str
+    else
+      a = str.split(" to ")
+      a.map { |date| date.to_date }
+      (a[0]..a[1]).to_a
+    end
   end
 end
