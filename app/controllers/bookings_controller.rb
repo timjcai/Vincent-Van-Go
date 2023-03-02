@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
   def index
     @listing = Listing.find(params[:id])
     @bookings = Booking.where(listing: @listing)
-end
+  end
 
   def create
     @listing = Listing.find(params[:id])
