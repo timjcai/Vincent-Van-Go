@@ -4,8 +4,11 @@
 
 <div class="container">
   <br>
-  <h1> All bookings <h1>
-  <p><%= link_to 'Back to listing', listing_path(@listing)%></p>
+  <div>
+  <h1>My bookings</h1>
+  <%= @user.email %>
+  </div>
+  <br>
   <% @bookings.each do |booking| %>
     <div class="card-product">
     <% if Listing.find(booking.listing_id).photo.attached? %>
@@ -21,7 +24,6 @@
           </div>
           <div style="display: flex; justify-content: space-between; ">
             <p><%= booking.booking_date %></p>
-            <p><%= booking.user.email %></p>
             <p>$<%= Listing.find(booking.listing_id).price_per_day %>0 AUD/day</p>
           </div>
         </div>
