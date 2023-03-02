@@ -6,6 +6,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   get 'listings', to: 'listings#index'
+  get 'listings/under100', to: 'listings#under100', as: 'listings_under_100'
+  get 'listings/pet_friendly', to: 'listings#pet_friendly', as: 'listings_pet_friendly'
+  get 'listings/family', to: 'listings#family', as: 'listings_family'
+  get 'listings/fortwo', to: 'listings#fortwo', as: 'listings_fortwo'
+  get 'listings/wifi', to: 'listings#wifi', as: 'listings_wifi'
+  get 'listings/kitchen_bbq', to: 'listings#kitchen_bbq', as: 'listings_kitchen_bbq'
+  get 'listings/shower_bathroom', to: 'listings#shower_bathroom', as: 'listings_shower_bathroom'
+  get 'listings/luxury', to: 'listings#luxury', as: 'listings_luxury'
   get 'listings/new', to: 'listings#new'
   get 'listings/my_listings', to: 'listings#mine', as: 'my_listings'
   get 'listings/my_bookings', to: 'bookings#mine', as: 'my_bookings'

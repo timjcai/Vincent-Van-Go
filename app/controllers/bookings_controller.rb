@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     p @blocked_dates = convert_range_to_array(@booking_date)
     @blocked_dates.each do |date|
       @booking = Booking.create(user_id: current_user.id, listing: @listing, booking_date: date)
-      @availabilities = Availability.create(available: false, date: date, booking_id: @booking.id, listing_id: @booking.listing.id)
+      @availabilities = Availability.create(available: false, date: date, booking_id: @booking.id, listing_id: @booking.listing_id)
     end
     redirect_to listing_path(@listing)
   end
@@ -44,8 +44,6 @@ class BookingsController < ApplicationController
   def convert_range_to_array(str)
     if str == ""
       return ""
-    elsif str.size < 10
-      return str
     else
       a = str.split(" to ")
       a.map { |date| date.to_date }

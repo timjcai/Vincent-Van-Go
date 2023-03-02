@@ -58,6 +58,38 @@ class ListingsController < ApplicationController
     @listings = Listing.where(user_id: current_user.id)
   end
 
+  def under100
+    @listings = Listing.where("price_per_day < ?", 100)
+  end
+
+  def pet_friendly
+    @listings = Listing.where(pet_friendly: true)
+  end
+
+  def family
+    @listings = Listing.where("capacity > ?", 2)
+  end
+
+  def fortwo
+    @listings = Listing.where(capacity: 2)
+  end
+
+  def wifi
+    @listings = Listing.where(wifi: true)
+  end
+
+  def kitchen_bbq
+    @listings = Listing.where(kitchen: true).or(Listing.where(bbq: true))
+  end
+
+  def shower_bathroom
+    @listings = Listing.where(shower: true).or(Listing.where(bathroom: true))
+  end
+
+  def luxury
+    @listings = Listing.where(luxury: true)
+  end
+
   private
 
   def set_listing
@@ -66,16 +98,15 @@ class ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(:title, :description, :price_per_day, :photo, :user_id)
+    params.require(:listing).permit(:title, :description, :price_per_day, :photo, :user_id, :address)
   end
 
-  private
-    def build_listing_object(listing)
-      {
-        marker_html: render_to_string(partial: "marker"),
-        info_window_html: render_to_string(partial: "info_window", locals: {listing: listing}),
-        lat: listing.latitude,
-        lng: listing.longitude
-      }
-    end
+  def build_listing_object(listing)
+    {
+      marker_html: render_to_string(partial: "marker"),
+      info_window_html: render_to_string(partial: "info_window", locals: {listing: listing}),
+      lat: listing.latitude,
+      lng: listing.longitude
+    }
+  end
 end
