@@ -1,38 +1,52 @@
 <div class="category-section">
       <div class="cards">
+        <%= link_to listings_family_path do %>
         <div class="card">
           <img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80" alt="">
           <h3 class="card-title">Family</h3>
         </div>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1507682520764-93440a60e9b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80" alt="">
-          <h3 class="card-title">Pet friendly</h3>
-        </div>
+        <% end %>
+        <%= link_to listings_fortwo_path do %>
         <div class="card">
           <img src="https://images.unsplash.com/photo-1519981337-7295e387c157?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="">
           <h3 class="card-title">Just for two</h3>
         </div>
+        <% end %>
+        <%= link_to listings_pet_friendly_path do %>
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1507682520764-93440a60e9b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80" alt="">
+            <h3 class="card-title">Pet friendly</h3>
+          </div>
+        <% end %>
         <%= link_to listings_under_100_path do %>
           <div class="card">
             <img src="https://images.unsplash.com/photo-1660894990762-0bd08036aa35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1771&q=80" alt="">
             <h3 class="card-title">Under $100</h3>
           </div>
         <% end %>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1721&q=80" alt="">
-          <h3 class="card-title">Wi-fi</h3>
-        </div>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1667574308329-9a986bf1f028?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="">
-          <h3 class="card-title">Kitchen & BBQ</h3>
-        </div>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1563783850023-077d97825802?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="">
-          <h3 class="card-title">Shower & Bathroom</h3>
-        </div>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1515172128886-07c606bb4eb3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2226&q=80" alt="">
-          <h3 class="card-title">Luxury caravans</h3>
-        </div>
+        <%= link_to listings_wifi_path do %>
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1721&q=80" alt="">
+            <h3 class="card-title">Wi-fi</h3>
+          </div>
+        <% end %>
+        <%= link_to listings_kitchen_bbq_path do %>
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1667574308329-9a986bf1f028?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="">
+            <h3 class="card-title">Kitchen & BBQ</h3>
+          </div>
+        <% end %>
+        <%= link_to listings_shower_bathroom_path do %>
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1563783850023-077d97825802?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="">
+            <h3 class="card-title">Shower & Bathroom</h3>
+          </div>
+        <% end %>
+        <%= link_to listings_luxury_path do %>
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1515172128886-07c606bb4eb3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2226&q=80" alt="">
+            <h3 class="card-title">Luxury caravans</h3>
+          </div>
+        <% end %>
   </div>
 </div>
