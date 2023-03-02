@@ -4,20 +4,20 @@
 /* the listing */
 
 .flex-container {
-  display: flex;
-  justify-content: space-around;
   align-items: center;
   align-content: center;
   border-bottom: 1px solid lightgray;
+  display: flex;
+  justify-content: space-around;
 }
 
 .listing {
-  max-width: 800px;
-  margin: 50px 50px 30px;
-  padding: 30px;
   background-color: #f7f6dd;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   border-radius: 5px;
+  max-width: 800px;
+  margin: 50px 50px 30px;
+  padding: 30px;
 
   img {
     border-radius: 7px;
@@ -36,10 +36,10 @@
 }
 
 .listing p {
+  color: #556b2f;
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 10px;
-  color: #556b2f;
 }
 
 .listing .actions {
@@ -49,13 +49,13 @@
 /* the buttons */
 .listing a {
   border: 1px solid #4A4A4A;
-  color: #784212;
   border-radius: 5px;
+  color: #784212;
   font-weight: light;
+  margin-right: 30px;
   opacity: 0.6;
   padding: 8px 24px;
   transition: opacity 0.3s ease;
-  margin-right: 30px;
 }
 
 .listing a:hover {
@@ -72,22 +72,22 @@
 }
 
 .booking-card {
-  text-align: center;
-  padding: 50px;
   background-color: #f7f6dd;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   border-radius: 5px;
+  padding: 50px;
+  text-align: center;
 
   a {
-    margin: 0 30px;
-    color: #fff;
     background-color: #a15b38;
+    border: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin: 0 30px;
     opacity: 1;
     padding: 12px 40px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    font-size: 18px;
-    border: none;
   }
 
   p {

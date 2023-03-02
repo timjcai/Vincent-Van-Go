@@ -7,20 +7,20 @@
 }
 
 .mapboxgl-popup-content {
-  text-align: center;
   font-family: var(--Poppins);
+  text-align: center;
 }
 
 .map-title {
-  font-weight: bold;
-  margin: 40px 0;
   color: #636033;
+  font-weight: bold;
   font-family: var(--Poppins);
+  margin: 40px 0;
 }
 
 .map {
-  width: 70%;
-  height: 600px;
   border-radius: 5px;
+  height: 600px;
   margin-bottom: 40px;
+  width: 70%;
 }
