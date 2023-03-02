@@ -195,20 +195,17 @@ def create_new_listing(url, counter, address)
     description: create_description,
     price_per_day: set_price_per_day + set_cents_per_day,
     address: address[counter],
-    # capacity: size_capacity,
-    # vehicle_type: types_of_vans,
-    # features: {
-      # pet_friendly: true_false,
-      # luxury: true_false,
-      # heating: true_false,
-      # wi-fi: true_false,
-      # bbq: true_false,
-      # kitchen: true_false,
-      # tv: true_false,
-      # bathroom: true_false,
-      # shower: true_false,
-      # airconditioning: true_false
-    # },
+    capacity: size_capacity,
+    pet_friendly: true_false,
+    luxury: true_false,
+    wifi: true_false,
+    bbq: true_false,
+    kitchen: true_false,
+    bathroom: true_false,
+    shower: true_false,
+    tv: true_false,
+    airconditioning: true_false,
+    heating: true_false,
     user: create_fake_user
   }
   new_listing = Listing.new(attributes)
