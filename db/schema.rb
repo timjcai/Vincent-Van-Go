@@ -46,15 +46,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_112356) do
     t.boolean "available"
     t.date "date"
     t.bigint "listing_id", null: false
+    t.bigint "booking_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_availabilities_on_booking_id"
     t.index ["listing_id"], name: "index_availabilities_on_listing_id"
   end
 
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "listing_id", null: false
-    t.datetime "booking_date"
+    t.date "booking_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["listing_id"], name: "index_bookings_on_listing_id"
@@ -88,6 +90,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_112356) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "availabilities", "bookings"
   add_foreign_key "availabilities", "listings"
   add_foreign_key "bookings", "listings"
   add_foreign_key "bookings", "users"

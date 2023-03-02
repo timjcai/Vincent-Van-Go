@@ -3,8 +3,8 @@ class CreateAvailabilities < ActiveRecord::Migration[7.0]
     create_table :availabilities do |t|
       t.boolean :available
       t.date :date
-      t.references :booking, null: false, foreign_key: true
       t.references :listing, null: false, foreign_key: true
+      t.references :booking, null: false, foreign_key: true
 
       t.timestamps
     end

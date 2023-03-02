@@ -194,7 +194,7 @@ def create_new_listing(url, counter, address)
     title: create_title(types_of_vans),
     description: create_description,
     price_per_day: set_price_per_day + set_cents_per_day,
-    address: address[counter]
+    address: address[counter],
     # capacity: size_capacity,
     # vehicle_type: types_of_vans,
     # features: {
