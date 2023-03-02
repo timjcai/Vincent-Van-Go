@@ -65,7 +65,7 @@ photo_urls = [
 def create_fake_user
   email = Faker::Internet.email(name: Faker::Name.name)
   password = Faker::Internet.password(min_length: 8)
-  return user = User.create({ email: email, password: password })
+  User.create({ email: email, password: password })
 end
 
 def types_of_vans
@@ -132,7 +132,11 @@ def create_description
 end
 
 def set_price_per_day
-  (20.99..300.99).to_a.sample
+  (20..300).to_a.sample
+end
+
+def set_cents_per_day
+  (1..100).to_a.sample / 100.to_f
 end
 
 def create_new_listing(url, counter)
@@ -140,10 +144,10 @@ def create_new_listing(url, counter)
   p attributes = {
     title: create_title(types_of_vans),
     description: create_description,
-    price_per_day: set_price_per_day,
+    price_per_day: set_price_per_day + set_cents_per_day,
     # capacity: size_capacity,
     # vehicle_type: types_of_vans,
-    features: {
+    # features: {
       # pet_friendly: true_false,
       # luxury: true_false,
       # heating: true_false,
@@ -154,7 +158,7 @@ def create_new_listing(url, counter)
       # bathroom: true_false,
       # shower: true_false,
       # airconditioning: true_false
-    },
+    # },
     user: create_fake_user
   }
   new_listing = Listing.new(attributes)
@@ -167,12 +171,8 @@ def init_listing_seed(array)
   array.each do |url|
     create_new_listing(url, counter)
     counter += 1
+    sleep 2
   end
 end
 
-photo_urls2 = [
-  "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1752&q=80.jpg",
-  "https://images.unsplash.com/photo-1576793048000-494aaa93d160?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80.jpg",
-]
-
-init_listing_seed(photo_urls2)
+init_listing_seed(photo_urls)
