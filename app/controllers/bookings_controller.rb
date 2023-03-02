@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @listing = Listing.find(@booking.listing_id)
     @booking.destroy
-    redirect_to all_bookings_path(@listing.id)
+    redirect_back(fallback_location: root_path)
   end
 
   def mine

@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   get 'listings/:id/bookings', to: 'bookings#index', as: 'all_bookings'
   get 'listings/:id/bookings/new', to: 'bookings#new', as: 'bookings'
   post 'listings/:id/bookings', to: 'bookings#create', as: 'listing_bookings'
-  delete 'listings/:id/bookings', to: 'bookings#destroy'
+  delete 'listings/:id/bookings', to: 'bookings#destroy', as: 'delete_bookings'
 end

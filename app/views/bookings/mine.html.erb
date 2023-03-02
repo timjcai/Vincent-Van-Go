@@ -11,12 +11,14 @@
   <br>
   <% @bookings.each do |booking| %>
     <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <% if Listing.find(booking.listing_id).photo.attached? %>
+      <%= cl_image_tag Listing.find(booking.listing_id).photo.key, width: 400, height: 300, crop: :fit %>
+    <% end %>
       <div class="container">
         <div class="card-product-infos">
           <div style="display: flex; justify-content: space-between; ">
             <h3><%= Listing.find(booking.listing_id).title %></h3>
-            <%= link_to all_bookings_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'button button--delete' do %>
+            <%= link_to delete_bookings_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, remote: true, class: 'button button--delete' do %>
               <i class="fa-solid fa-trash" style="color: black"></i>
             <% end %>
           </div>
