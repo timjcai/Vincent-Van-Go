@@ -22,12 +22,14 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-    <%= yield %>
-    <% if user_signed_in? %>
-    <% end %>
-    <%= render "shared/footer" %>
+    <div class="content-wrapper">
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
+      <%= yield %>
+      <% if user_signed_in? %>
+      <% end %>
+      <%= render "shared/footer" %>
+    </div>
 
   </body>
 </html>
