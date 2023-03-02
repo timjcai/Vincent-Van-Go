@@ -21,6 +21,52 @@
 
     <div class="listing__description">
       <p><%= @listing.description %></p>
+      <p> Comfortably fits <%= @listing.capacity %></p>
+    </div>
+
+
+    <div class="listing__description">
+      <h1>Additional Features:</h1>
+        <% if @listing.pet_friendly %>
+          <i class="fa-solid fa-paw"></i> Pet Friendly
+          <br>
+        <% end %>
+        <% if @listing.luxury %>
+          <i class="fa-solid fa-sack-dollar"></i> Luxury
+          <br>
+        <% end %>
+        <% if @listing.wifi %>
+          <i class="fa-solid fa-wifi"></i> Wifi
+          <br>
+        <% end %>
+        <% if @listing.bbq %>
+          <i class="fa-solid fa-fire-burner"></i> BBQ
+          <br>
+        <% end %>
+        <% if @listing.kitchen %>
+          <i class="fa-solid fa-kitchen-set"></i> Kitchen
+          <br>
+        <% end %>
+        <% if @listing.bathroom %>
+          <i class="fa-solid fa-toilet"></i> Bathroom
+          <br>
+        <% end %>
+        <% if @listing.shower %>
+          <i class="fa-solid fa-shower"></i> Shower
+          <br>
+        <% end %>
+        <% if @listing.tv %>
+          <i class="fa-solid fa-tv"></i> TV
+          <br>
+        <% end %>
+        <% if @listing.airconditioning %>
+          <i class="fa-solid fa-fan"></i> airconditioning
+          <br>
+        <% end %>
+        <% if @listing.heating %>
+          <i class="fa-solid fa-fire"></i> Heating
+          <br>
+        <% end %>
     </div>
 
     <div class="listing__actions">
