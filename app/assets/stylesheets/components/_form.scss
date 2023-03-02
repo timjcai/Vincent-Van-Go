@@ -11,7 +11,6 @@
   font-weight: 500;
 
   .btn {
-    // background-color: var(--rust);
     background-color: #8c8634;
     border: none;
     border-radius: 5px;
@@ -21,14 +20,18 @@
     padding: 10px 20px;
     margin: 20px 0;
   }
-
-  input {
-    padding: 15px 10px;
-  }
 }
 
 .header {
-  margin: 20px 0;
+  margin: 30px 0;
   color: #393724;
   font-family: var(--poppins);
+}
+
+.form-label {
+  font-size: 22px;
+}
+
+.form-input > div {
+  margin-bottom: 30px;
 }

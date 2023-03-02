@@ -3,6 +3,14 @@ class ListingsController < ApplicationController
 
   def index
     @listings = Listing.all
+
+    @markers = @listings.geocoded.map do |listing|
+      {
+        lat: listing.latitude,
+        lng: listing.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {listing: listing})
+      }
+    end
   end
 
   def new
@@ -23,6 +31,11 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @booking = Booking.where(listing_id: @listing.id)
+
+    @markers = [
+      build_listing_object(@listing)
+    ]
+    @center = [ @listing.longitude, @listing.latitude ]
   end
 
   def edit
@@ -55,4 +68,14 @@ class ListingsController < ApplicationController
   def listing_params
     params.require(:listing).permit(:title, :description, :price_per_day, :photo, :user_id)
   end
+
+  private
+    def build_listing_object(listing)
+      {
+        marker_html: render_to_string(partial: "marker"),
+        info_window_html: render_to_string(partial: "info_window", locals: {listing: listing}),
+        lat: listing.latitude,
+        lng: listing.longitude
+      }
+    end
 end

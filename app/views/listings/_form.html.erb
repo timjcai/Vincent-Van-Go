@@ -1,6 +1,7 @@
   <%= simple_form_for(@listing, :html => { :class => 'form-horizontal' }) do |f| %>
   <div class="form-inputs">
     <%= f.input :title, placeholder: 'Caravan' %>
+    <%= f.input :address, placeholder: 'Suburb' %>
     <%= f.input :description, placeholder: 'Two beds, kitchen, bath and fridge'%>
     <%= f.input :price_per_day, placeholder: '$' %>
     <%= f.input :photo, as: :file %>
