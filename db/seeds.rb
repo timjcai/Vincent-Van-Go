@@ -139,12 +139,62 @@ def set_cents_per_day
   (1..100).to_a.sample / 100.to_f
 end
 
-def create_new_listing(url, counter)
+mcdonalds_address_array = [
+  "67 Military Road, Avondale Heights, VIC",
+  "190-200 Ballarat Road, Footscray, VIC",
+  "5 St Albans Road, St Albans, VIC",
+  "1500 Eastlink Northbound, Scoresby, VIC",
+  "1464 Ferntree Gully Road, Knoxfield, VIC",
+  "Cnr Fulham & Stud Roads, Rowville, VIC",
+  "740-742 Burwood Highway, Ferntree Gully, VIC",
+  "314 Mountain Highway, Wantirna, VIC",
+  "267 Dorset Road, Boronia, VIC",
+  "519 Waverley Road, Mount Waverley, VIC",
+  "296 Canterbury Road, Bayswater North, VIC",
+  "51-57 Maroondah Highway, Ringwood, VIC",
+  "1736-1740 Dandenong Road, Clayton, VIC",
+  "414 Warrigal Road, Heatherton, VIC",
+  "661-663 Warrigal Road, South Oakleigh, VIC",
+  "Cnr Poath & North Roads, Oakleigh, VIC",
+  "Cnr Boundary & Centre Dandenong Roads, Braeside, VIC",
+  "652-656 North Road, Ormond, VIC",
+  "Plenty Valley Shopping Centre, 415 McDonalds Rd, Mill Park, VIC",
+  "400 Plenty Road Cnr University Drive, Mill Park, VIC",
+  "Epping Plaza Shopping Centre, High St (cnr Cooper St), Epping, VIC",
+  "Cnr High Street & Childs Road, Epping, VIC",
+  "30 Dalton Roads (cnr Settlement Rd), Thomastown, VIC",
+  "110 Harvest Home Road, Wollert, VIC",
+  "1405 Plenty Road, Mernda, VIC",
+  "Cnr Davis Rd & Hummingbird Boulevard, Tarneit, VIC",
+  "Manor Lakes Boulevarde (Cnr Ballan Rd), Wyndham Vale, VIC",
+  "1-9 Jamieson Way, Point Cook, VIC",
+  "223 Cranbourne Road, Karingal, VIC",
+  "Cnr Westernport Highway & Hall Road, Skye, VIC",
+  "1 Silver Banksia Boulevarde, Cranbourne, VIC",
+  "930 Thompsons Road, Cranbourne West, VIC",
+  "970 Nepean Highway, Mornington, VIC",
+  "Cnr Springvale & Heatherton Roads, Springvale, VIC",
+  "970 Nepean Highway, Mornington, VIC",
+  "84-94 Osborne Avenue , Springvale, VIC",
+  "Cnr Princess Hwy & Smith Rd, Springvale, VIC",
+  "Cnr Princes Highway & Elonera Road, Noble Park, VIC",
+  "Cnr Boundary & Centre Dandenong Roads, Braeside, VIC",
+  "317 Cheltenham Road, Keysborough, VIC",
+  "Cnr Cheltenham & Perry Roads, Keysborough, VIC",
+  "100 Waverley Road, Malvern East, VIC",
+  "1341 Dandenong Rd, Chadstone, VIC",
+  "1333 Dandenong Rd, Malvern East, VIC",
+  "Chadstone Shopping Centre, 1341 Dandenong Rd, Chadstone, VIC",
+  "606 Warrigal Road, Holmesglen, VIC"
+]
+
+def create_new_listing(url, counter, address)
   file = URI.open(url)
   p attributes = {
     title: create_title(types_of_vans),
     description: create_description,
     price_per_day: set_price_per_day + set_cents_per_day,
+    address: address[counter]
     # capacity: size_capacity,
     # vehicle_type: types_of_vans,
     # features: {
@@ -166,13 +216,13 @@ def create_new_listing(url, counter)
   new_listing.save
 end
 
-def init_listing_seed(array)
+def init_listing_seed(array, address)
   counter = 1
   array.each do |url|
-    create_new_listing(url, counter)
+    create_new_listing(url, counter, address)
     counter += 1
-    sleep 2
+    sleep 1
   end
 end
 
-init_listing_seed(photo_urls)
+init_listing_seed(photo_urls, mcdonalds_address_array)
