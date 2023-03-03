@@ -3,6 +3,14 @@ class ListingsController < ApplicationController
 
   def index
     @listings = Listing.all
+
+    @markers = @listings.geocoded.map do |listing|
+      {
+        lat: listing.latitude,
+        lng: listing.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {listing: listing})
+      }
+    end
   end
 
   def new
@@ -14,7 +22,7 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
     # get params
     if @listing.save
-      redirect_to listing_path(@listing)
+      redirect_to listing_path(@listing), notice: "You've successfully created a new listing for your Van 🚗 "
     end
     # redirect to new listing page
     #
@@ -23,7 +31,12 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @review = Review.new
-    @booking = Booking.where(listing_id: @listing.id)
+    # @booking = Booking.where(listing_id: @listing.id)
+    @booking = Booking.new
+    @markers = [
+      build_listing_object(@listing)
+    ]
+    @center = [ @listing.longitude, @listing.latitude ]
   end
 
   def edit
@@ -46,6 +59,38 @@ class ListingsController < ApplicationController
     @listings = Listing.where(user_id: current_user.id)
   end
 
+  def under100
+    @listings = Listing.where("price_per_day < ?", 100)
+  end
+
+  def pet_friendly
+    @listings = Listing.where(pet_friendly: true)
+  end
+
+  def family
+    @listings = Listing.where("capacity > ?", 2)
+  end
+
+  def fortwo
+    @listings = Listing.where(capacity: 2)
+  end
+
+  def wifi
+    @listings = Listing.where(wifi: true)
+  end
+
+  def kitchen_bbq
+    @listings = Listing.where(kitchen: true).or(Listing.where(bbq: true))
+  end
+
+  def shower_bathroom
+    @listings = Listing.where(shower: true).or(Listing.where(bathroom: true))
+  end
+
+  def luxury
+    @listings = Listing.where(luxury: true)
+  end
+
   private
 
   def set_listing
@@ -54,6 +99,16 @@ class ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(:title, :description, :price_per_day, :photo, :user_id)
+    params.require(:listing).permit(:title, :description, :price_per_day, :photo, :capacity, :user_id, :address,
+                                    :pet_friendly, :luxury, :wifi, :bbq, :kitchen, :bathroom, :shower, :tv, :airconditioning, :heating)
+  end
+
+  def build_listing_object(listing)
+    {
+      marker_html: render_to_string(partial: "marker"),
+      info_window_html: render_to_string(partial: "info_window", locals: {listing: listing}),
+      lat: listing.latitude,
+      lng: listing.longitude
+    }
   end
 end

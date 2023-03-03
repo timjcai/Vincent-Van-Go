@@ -1,16 +1,28 @@
-<h1>Booking Page<h1>
-<%= @listing.title %>
-<a><%= link_to 'Back to listing', listing_path(@listing) %></a>
 
-<%# Form currently not working %>
+<div class="listing book-listing" style="margin-top: 50px;">
+  <div class="container" style="display: flex">
+    <div class="col">
+        <div class="listing__header" style="text-align: left">
+          <h1 class="listing__title">Booking Page for <%= @listing.title %></h1>
+          <p class="listing__location">$<%= @listing.price_per_day %> AUD/day</p>
+          <%= link_to 'Back to listing', listing_path(@listing) %>
+        </div>
 
-<%= simple_form_for [@listing, @booking] do |f| %>
-  <%=f.hidden_field :user_id, :value => current_user.id %>
-  <%=f.hidden_field :listing_id, :value => @listing.id %>
-  <%= f.text_field :booking_date,
-  data: {
-    controller: "flatpickr",
-    flatpickr_disabled_dates_value: @listing.availabilities.where(available: false).map{|avail| avail.date.to_s}
-  } %>
-  <%= f.submit %>
-<% end %>
+        <% if @listing.photo.key? %>
+          <%= cl_image_tag @listing.photo.key, width: 400, height: 300, crop: :lfill, class: 'book-img' %>
+        <% end %>
+    </div>
+    <div class="col">
+      <%= simple_form_for [@listing, @booking] do |f| %>
+        <%=f.hidden_field :user_id, :value => current_user.id %>
+        <%=f.hidden_field :listing_id, :value => @listing.id %>
+        <%= f.text_field :booking_date,
+          data: {
+            controller: "flatpickr",
+            flatpickr_disabled_dates_value: @listing.availabilities.where(available: false).map{|avail| avail.date.to_s}
+          } %>
+        <%= f.submit class:'book-btn' %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -5,30 +5,43 @@
 }
 
 .form-horizontal {
-  font-family: var(--poppins);
   color: var(--olive);
+  font-family: var(--poppins);
   font-size: 24px;
   font-weight: 500;
 
   .btn {
-    // background-color: var(--rust);
     background-color: #8c8634;
     border: none;
     border-radius: 5px;
     color: white;
     font-size: 18px;
     font-weight: 400;
-    padding: 10px 20px;
     margin: 20px 0;
-  }
-
-  input {
-    padding: 15px 10px;
+    padding: 10px 20px;
   }
 }
 
 .header {
-  margin: 20px 0;
   color: #393724;
   font-family: var(--poppins);
+  margin: 30px 0;
+}
+
+.form-label {
+  font-size: 22px;
+}
+
+.form-input > div {
+  margin-bottom: 30px;
+}
+
+.extra-features {
+  padding-bottom: 30px;
+  font-size: 30px;
+}
+
+.form-check-input[type="checkbox"]:checked {
+  border-color: #716d42;
+  background-color: #716d42;
 }

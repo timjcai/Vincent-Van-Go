@@ -1,0 +1,41 @@
+.card-product {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 120px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.my-header {
+  color: #636033;
+  font-family: 'Poppins', sans-serif;
+}
+
+.card-product img {
+  height: 100%;
+  object-fit: cover;
+  width: 120px;
+}
+
+.card-product h3 {
+  font-size: calc(0.8rem + 0.6vw);
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 0.7;
+  margin-bottom: 0;
+  margin-top: 0;
+  opacity: .7;
+}
+
+.card-product .card-product-infos {
+  height: 100%;
+  padding: 16px;
+  position: relative;
+  text-align: left;
+}

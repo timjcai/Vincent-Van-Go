@@ -4,8 +4,11 @@
 
 <div class="container">
   <br>
-  <h1 class="my-header"> All bookings <h1>
-  <%= link_to 'Back to listing', listing_path(@listing), class: 'btn' %>
+  <div>
+  <h1 class="my-header">My bookings</h1>
+  <%= @user.email %>
+  </div>
+  <br>
   <% @bookings.each do |booking| %>
     <div class="card-product">
     <% if Listing.find(booking.listing_id).photo.attached? %>
@@ -14,15 +17,16 @@
       <div class="container">
         <div class="card-product-infos">
           <div style="display: flex; justify-content: space-between; ">
-            <h3><%= Listing.find(booking.listing_id).title %></h3>
+            <%= link_to listing_path(Listing.find(booking.listing_id)) do %>
+              <h3><%= Listing.find(booking.listing_id).title %></h3>
+            <% end %>
             <%= link_to delete_bookings_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, remote: true, class: 'button button--delete' do %>
               <i class="fa-solid fa-trash" style="color: black"></i>
             <% end %>
           </div>
           <div style="display: flex; justify-content: space-between; ">
             <p><%= booking.booking_date %></p>
-            <p><%= booking.user.email %></p>
-            <p>$<%= Listing.find(booking.listing_id).price_per_day %>0 AUD/day</p>
+            <p>$<%= Listing.find(booking.listing_id).price_per_day %> AUD/day</p>
           </div>
         </div>
       </div>

@@ -2,25 +2,28 @@
   <%= stylesheet_link_tag 'show' %>
 </head>
 
+<div class="flex-container">
+  <div class="listing">
+    <div class="listing__header">
+      <h1 class="listing__title"><%= @listing.title %></h1>
+      <p class="listing__location"><%= @listing.title.split(", ").first %></p>
+    </div>
 
-<div class="listing" style="margin-top: 50px;">
-  <div class="listing__header">
-    <h1 class="listing__title"><%= @listing.title %></h1>
-    <p class="listing__location"><%= @listing.title.split(", ").first %></p>
-  </div>
+    <% if @listing.photo.key? %>
+      <%= cl_image_tag @listing.photo.key, width: 400, height: 300, crop: :lfill %>
+    <% end %>
 
-  <% if @listing.photo.key? %>
-    <%= cl_image_tag @listing.photo.key, width: 400, height: 300, crop: :lfill %>
-  <% end %>
+    <div class="listing__details">
+      <p class="listing__address"><strong>Address:</strong> <%= @listing.address %></p>
+      <p class="listing__price"><strong>Price:</strong> <%= number_to_currency(@listing.price_per_day) %> per day</p>
+      <p class="listing__user"><strong>Contact:</strong> <%= @listing.user.email %></p>
+    </div>
 
-  <div class="listing__details">
-    <p class="listing__price"><strong>Price:</strong> <%= number_to_currency(@listing.price_per_day) %> per day</p>
-    <p class="listing__user"><strong>Contact:</strong> <%= @listing.user.email %></p>
-  </div>
+    <div class="listing__description">
+      <p><%= @listing.description %></p>
+      <p> Comfortably fits <%= @listing.capacity %></p>
+    </div>
 
-  <div class="listing__description">
-    <p><%= @listing.description %></p>
-  </div>
 
 <div>
   <h1>All Reviews</h1>
@@ -43,13 +46,79 @@
   <%= f.button :submit %>
 <% end %>
 
+    <div class="listing__description" style="margin-bottom: 30px">
+      <h1>Additional Features:</h1>
+        <% if @listing.pet_friendly %>
+          <i class="fa-solid fa-paw"></i> Pet Friendly
+          <br>
+        <% end %>
+        <% if @listing.luxury %>
+          <i class="fa-solid fa-sack-dollar"></i> Luxury
+          <br>
+        <% end %>
+        <% if @listing.wifi %>
+          <i class="fa-solid fa-wifi"></i> Wifi
+          <br>
+        <% end %>
+        <% if @listing.bbq %>
+          <i class="fa-solid fa-fire-burner"></i> BBQ
+          <br>
+        <% end %>
+        <% if @listing.kitchen %>
+          <i class="fa-solid fa-kitchen-set"></i> Kitchen
+          <br>
+        <% end %>
+        <% if @listing.bathroom %>
+          <i class="fa-solid fa-toilet"></i> Bathroom
+          <br>
+        <% end %>
+        <% if @listing.shower %>
+          <i class="fa-solid fa-shower"></i> Shower
+          <br>
+        <% end %>
+        <% if @listing.tv %>
+          <i class="fa-solid fa-tv"></i> TV
+          <br>
+        <% end %>
+        <% if @listing.airconditioning %>
+          <i class="fa-solid fa-snowflake"></i> airconditioning
+          <br>
+        <% end %>
+        <% if @listing.heating %>
+          <i class="fa-solid fa-fire"></i> Heating
+          <br>
+        <% end %>
+    </div>
 
-<%= link_to "Back to all vans", listings_path %>
+    <div class="listing__actions">
+      <%= link_to 'Edit', listing_edit_path(@listing), class: 'button button--edit' %>
+      <%= link_to 'Delete', listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'button button--delete' %>
+      <%= link_to 'my bookings',  my_bookings_path %>
+      <% if current_user.id == @listing.user_id %><%= link_to 'See Bookings',  all_bookings_path(@listing) %><% end %>
+    </div>
 
-  <div class="listing__actions">
-    <%= link_to 'Request Booking',  listing_bookings_path(@listing) %>
-    <% if current_user.id == @listing.user_id %><%= link_to 'See Bookings',  all_bookings_path(@listing) %><% end %>
-    <%= link_to 'Edit', edit_listing_path(@listing), class: 'button button--edit' %>
-    <%= link_to 'Delete', listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'button button--delete' %>
+
   </div>
+  <div class="listing booking-card">
+      <%= simple_form_for [@listing, @booking] do |f| %>
+        <%=f.hidden_field :user_id, :value => current_user.id %>
+        <%=f.hidden_field :listing_id, :value => @listing.id %>
+        <%= f.text_field :booking_date,
+          data: {
+            controller: "flatpickr",
+            flatpickr_disabled_dates_value: @listing.availabilities.where(available: false).map{|avail| avail.date.to_s}
+          } %>
+        <%= f.submit class:'book-btn' %>
+      <% end %>
+      <p>You won't be charged now</p>
+  </div>
+</div>
+
+<div class="container map-container">
+  <h2 class="map-title">Location</h2>
+  <div class="map"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-center-value="<%= @center.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>

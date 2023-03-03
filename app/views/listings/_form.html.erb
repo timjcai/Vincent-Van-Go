@@ -1,10 +1,25 @@
   <%= simple_form_for(@listing, :html => { :class => 'form-horizontal' }) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :title, placeholder: 'Caravan' %>
-    <%= f.input :description, placeholder: 'Two beds, kitchen, bath and fridge'%>
-    <%= f.input :price_per_day, placeholder: '$' %>
-    <%= f.input :photo, as: :file %>
-    <%=f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.submit class: 'btn' %>
-  </div>
-      <% end %>
+    <div class="form-inputs">
+      <%= f.input :title, placeholder: 'Caravan' %>
+      <%= f.input :address, placeholder: 'Suburb' %>
+      <%= f.input :description, placeholder: 'Two beds, kitchen, bath and fridge'%>
+      <%= f.input :price_per_day, placeholder: '$' %>
+      <%= f.input :capacity, placeholder: 'Number of guests' %>
+      <br>
+      <%= f.label :extra_features, class: 'extra-features' %>
+      <%= f.input :pet_friendly, as: :boolean %>
+      <%= f.input :luxury, as: :boolean %>
+      <%= f.input :wifi, as: :boolean %>
+      <%= f.input :bbq, as: :boolean %>
+      <%= f.input :kitchen, as: :boolean %>
+      <%= f.input :bathroom, as: :boolean %>
+      <%= f.input :shower, as: :boolean %>
+      <%= f.input :tv, as: :boolean %>
+      <%= f.input :airconditioning, as: :boolean %>
+      <%= f.input :heating, as: :boolean %>
+      <br>
+      <%= f.input :photo, as: :file %>
+      <%=f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.submit class: 'btn' %>
+    </div>
+  <% end %>

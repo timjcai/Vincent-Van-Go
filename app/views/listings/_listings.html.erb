@@ -1,10 +1,10 @@
 <div class="container">
-  <%= link_to 'Create new listing', new_listing_path, class: 'btn' %>
+  <%= link_to 'Create new listing', listings_new_path, class: 'btn' %>
   <div class="cards">
       <% @listings.each do |item| %>
         <%= link_to listing_path(item.id), class: "card" do %>
           <% if item.photo.attached? %>
-            <%= cl_image_tag(item.photo.key, width: 400, height: 300, crop: :lfill) %>
+            <%= cl_image_tag item.photo.key, width: 400, height: 300, crop: :lfill %>
           <% else %>
             <img src="https://images.pexels.com/photos/5763198/pexels-photo-5763198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
           <% end %>

@@ -1,0 +1,26 @@
+.root {
+  --Poppins: "Poppins", sans-serif;
+}
+
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  font-family: var(--Poppins);
+  text-align: center;
+}
+
+.map-title {
+  color: #636033;
+  font-weight: bold;
+  font-family: var(--Poppins);
+  margin: 40px 0;
+}
+
+.map {
+  border-radius: 5px;
+  height: 600px;
+  margin-bottom: 40px;
+  width: 70%;
+}
