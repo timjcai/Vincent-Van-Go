@@ -6,7 +6,11 @@
   <div class="cards">
       <% @listings.each do |item| %>
         <%= link_to listing_path(item.id), class: "card" do %>
-          <img src="https://images.pexels.com/photos/5763198/pexels-photo-5763198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
+          <% if item.photo.attached? %>
+            <%= cl_image_tag(item.photo.key, width: 400, height: 300, crop: :lfill) %>
+          <% else %>
+            <img src="https://images.pexels.com/photos/5763198/pexels-photo-5763198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
+          <% end %>
           <h4 class="listing-title truncate"><%= item.title %></h4>
           <p class="price">$<%= item.price_per_day %> <small>AUD/day</small> </p>
           <%# <%= link_to 'Delete', listing_path(item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
