@@ -35,3 +35,13 @@
 .form-input > div {
   margin-bottom: 30px;
 }
+
+.extra-features {
+  padding-bottom: 30px;
+  font-size: 30px;
+}
+
+.form-check-input[type="checkbox"]:checked {
+  border-color: #716d42;
+  background-color: #716d42;
+}
