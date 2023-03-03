@@ -4,8 +4,8 @@
 
 <div class="container">
   <br>
-  <h1> All bookings <h1>
-  <p><%= link_to 'Back to listing', listing_path(@listing)%></p>
+  <h1 class="my-header"> All bookings <h1>
+  <%= link_to 'Back to listing', listing_path(@listing), class: 'btn' %>
   <% @bookings.each do |booking| %>
     <div class="card-product">
     <% if Listing.find(booking.listing_id).photo.attached? %>
