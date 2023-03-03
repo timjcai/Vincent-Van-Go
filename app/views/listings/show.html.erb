@@ -32,6 +32,14 @@
   <% end %>
 </div>
 
+<%= simple_form_for([@listing, @review]) do |f| %>
+  <%= f.input :content %>
+  <%=f.hidden_field :listing_id, :value => @listing.id %>
+        <%# <%=f.hidden_field :booking_id, :value => @booking.id %>
+  <%= f.button :submit %>
+<% end %>
+
+
 <%= link_to "Back to all vans", listings_path %>
 
   <div class="listing__actions">

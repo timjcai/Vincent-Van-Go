@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [ :show ]
 
+
+
 end
 
 #get 'reviews/new'
