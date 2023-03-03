@@ -45,8 +45,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_02_030559) do
   create_table "availabilities", force: :cascade do |t|
     t.boolean "available"
     t.date "date"
-    t.bigint "booking_id", null: false
     t.bigint "listing_id", null: false
+    t.bigint "booking_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["booking_id"], name: "index_availabilities_on_booking_id"
@@ -67,9 +67,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_02_030559) do
     t.string "title"
     t.string "description"
     t.float "price_per_day"
+    t.integer "capacity"
+    t.boolean "pet_friendly"
+    t.boolean "luxury"
+    t.boolean "wifi"
+    t.boolean "bbq"
+    t.boolean "kitchen"
+    t.boolean "bathroom"
+    t.boolean "shower"
+    t.boolean "tv"
+    t.boolean "airconditioning"
+    t.boolean "heating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 

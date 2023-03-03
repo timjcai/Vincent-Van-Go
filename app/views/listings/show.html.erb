@@ -23,19 +23,23 @@
   </div>
 
 <div>
+  <h1>All Reviews</h1>
   <% if @listing.reviews.blank? %>
     Be the first to leave a review for <%= @listing.title %>
   <% else %>
     <% @listing.reviews.each do |review| %>
+    <div style="background-color: #8c8634">
       <p><%= review.content %></p>
+      <p>by <%= User.find(review.user_id).email %></p>
+    </div>
     <% end %>
   <% end %>
 </div>
 
 <%= simple_form_for([@listing, @review]) do |f| %>
   <%= f.input :content %>
-  <%=f.hidden_field :listing_id, :value => @listing.id %>
-        <%# <%=f.hidden_field :booking_id, :value => @booking.id %>
+  <%= f.hidden_field :listing_id, :value => @listing.id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.button :submit %>
 <% end %>
 
