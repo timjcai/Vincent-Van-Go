@@ -22,10 +22,18 @@
     <p><%= @listing.description %></p>
   </div>
 
+<p><strong>Reviews</strong></p>
+<ul class="list-group">
+  <% @listing.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+  <% end %>
+</ul>
+<br>
+
   <div class="listing__actions">
-    <%= link_to 'Request Booking',  bookings_path(@listing) %>
+    <%= link_to 'Request Booking',  listing_bookings_path(@listing) %>
     <% if current_user.id == @listing.user_id %><%= link_to 'See Bookings',  all_bookings_path(@listing) %><% end %>
-    <%= link_to 'Edit', listing_edit_path(@listing), class: 'button button--edit' %>
+    <%= link_to 'Edit', edit_listing_path(@listing), class: 'button button--edit' %>
     <%= link_to 'Delete', listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'button button--delete' %>
   </div>
 </div>
