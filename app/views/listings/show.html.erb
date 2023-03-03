@@ -25,7 +25,7 @@
     </div>
 
 
-    <div class="listing__description">
+    <div class="listing__description" style="margin-bottom: 30px">
       <h1>Additional Features:</h1>
         <% if @listing.pet_friendly %>
           <i class="fa-solid fa-paw"></i> Pet Friendly
@@ -75,7 +75,17 @@
     </div>
   </div>
   <div class="listing booking-card">
-    <%= link_to 'Request Booking',  bookings_path(@listing) %>
+      <%= simple_form_for [@listing, @booking] do |f| %>
+        <%=f.hidden_field :user_id, :value => current_user.id %>
+        <%=f.hidden_field :listing_id, :value => @listing.id %>
+        <%= f.text_field :booking_date,
+          data: {
+            controller: "flatpickr",
+            flatpickr_disabled_dates_value: @listing.availabilities.where(available: false).map{|avail| avail.date.to_s}
+          } %>
+        <%= f.submit class:'book-btn' %>
+      <% end %>
+    <%# <%= link_to 'Request Booking',  bookings_path(@listing) %>
       <% if current_user.id == @listing.user_id %><%= link_to 'See Bookings',  all_bookings_path(@listing) %><% end %>
       <p>You won't be charged now</p>
   </div>
