@@ -1,5 +1,5 @@
 <div class="container">
-  <%= link_to 'Create new listing', listings_new_path, class: 'btn' %>
+  <%= link_to 'Create new listing', new_listing_path, class: 'btn' %>
   <div class="cards">
       <% @listings.each do |item| %>
         <%= link_to listing_path(item.id), class: "card" do %>

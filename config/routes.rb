@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
   get 'listings', to: 'listings#index'
   get 'listings/under100', to: 'listings#under100', as: 'listings_under_100'
   get 'listings/pet_friendly', to: 'listings#pet_friendly', as: 'listings_pet_friendly'
@@ -19,9 +16,9 @@ Rails.application.routes.draw do
   get 'listings/my_bookings', to: 'bookings#mine', as: 'my_bookings'
   post 'listings', to: 'listings#create'
   get 'listings/:id', to: 'listings#show', as: 'listing'
-  # get 'listings/:id/reviews', to: 'reviews#index', as: 'listing_reviews'
-  # get 'listings/:id/reviews/new', to: 'reviews#new', as: 'new_listing_review'
-  # post 'listings/:id/reviews', to: 'reviews#create', as: 'listing_reviews'
+  get 'listings/:id/reviews', to: 'reviews#index', as: 'listing_reviews'
+  get 'listings/:id/reviews/new', to: 'reviews#new', as: 'new_listing_review'
+  post 'listings/:id/reviews', to: 'reviews#create', as: 'listing_reviews'
   get 'listings/:id/edit', to: 'listings#edit', as: 'listing_edit'
   patch 'listings/:id', to: 'listings#update'
   delete 'listings/:id', to: 'listings#destroy'
@@ -30,3 +27,4 @@ Rails.application.routes.draw do
   post 'listings/:id/bookings', to: 'bookings#create', as: 'listing_bookings'
   delete 'listings/:id/bookings', to: 'bookings#destroy', as: 'delete_bookings'
 end
+

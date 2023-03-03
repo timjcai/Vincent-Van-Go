@@ -30,6 +30,7 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+    @review = Review.new
     # @booking = Booking.where(listing_id: @listing.id)
     @booking = Booking.new
     @markers = [
