@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
       @booking = Booking.create(user_id: current_user.id, listing: @listing, booking_date: date)
       @availabilities = Availability.create(available: false, date: date, booking_id: @booking.id, listing_id: @booking.listing_id)
     end
-    redirect_to listing_path(@listing)
+    redirect_to listing_path(@listing), notice: "🎉 Successfully created booking 🎉"
   end
 
   def destroy
