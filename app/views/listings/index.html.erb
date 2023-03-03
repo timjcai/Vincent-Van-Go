@@ -2,7 +2,7 @@
   <%= link_to 'Create new listing', new_listing_path, class: 'btn' %>
   <div class="cards">
       <% @listings.each do |item| %>
-        <%= link_to listing_path(item.id), class: "card" do %>
+        <%= link_to listings_path(item.id), class: "card" do %>
           <img src="https://images.pexels.com/photos/5763198/pexels-photo-5763198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
           <h4 class="listing-title truncate"><%= item.title %></h4>
           <p class="price">$<%= item.price_per_day %> <small>AUD/day</small> </p>

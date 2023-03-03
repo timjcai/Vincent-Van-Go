@@ -22,13 +22,17 @@
     <p><%= @listing.description %></p>
   </div>
 
-<p><strong>Reviews</strong></p>
-<ul class="list-group">
-  <% @listing.reviews.each do |review| %>
-    <li class="list-group-item"><%= review.content %></li>
+<div>
+  <% if @listing.reviews.blank? %>
+    Be the first to leave a review for <%= @listing.title %>
+  <% else %>
+    <% @listing.reviews.each do |review| %>
+      <p><%= review.content %></p>
+    <% end %>
   <% end %>
-</ul>
-<br>
+</div>
+
+<%= link_to "Back to all vans", listings_path %>
 
   <div class="listing__actions">
     <%= link_to 'Request Booking',  listing_bookings_path(@listing) %>
