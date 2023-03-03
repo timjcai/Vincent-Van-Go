@@ -30,8 +30,8 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
-    @booking = Booking.where(listing_id: @listing.id)
-
+    # @booking = Booking.where(listing_id: @listing.id)
+    @booking = Booking.new
     @markers = [
       build_listing_object(@listing)
     ]
@@ -98,7 +98,8 @@ class ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(:title, :description, :price_per_day, :photo, :user_id, :address)
+    params.require(:listing).permit(:title, :description, :price_per_day, :photo, :capacity, :user_id, :address,
+                                    :pet_friendly, :luxury, :wifi, :bbq, :kitchen, :bathroom, :shower, :tv, :airconditioning, :heating)
   end
 
   def build_listing_object(listing)
