@@ -4,9 +4,9 @@
       <%= f.input :address, placeholder: 'Suburb' %>
       <%= f.input :description, placeholder: 'Two beds, kitchen, bath and fridge'%>
       <%= f.input :price_per_day, placeholder: '$' %>
-      <%= f.input :capacity, placeholder: '?' %>
+      <%= f.input :capacity, placeholder: 'Number of guests' %>
       <br>
-      <%= f.label :extra_features %>
+      <%= f.label :extra_features, class: 'extra-features' %>
       <%= f.input :pet_friendly, as: :boolean %>
       <%= f.input :luxury, as: :boolean %>
       <%= f.input :wifi, as: :boolean %>
