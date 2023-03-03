@@ -1,7 +1,7 @@
 <div class="container">
 
   <br>
-  <h1 style="margin-top: 10px">My Listings</h1>
+  <h1 style="margin-top: 10px" class="my-header">My Listings</h1>
   <%= link_to 'Create new listing', listings_new_path, class: 'btn' %>
   <div class="cards">
       <% @listings.each do |item| %>
