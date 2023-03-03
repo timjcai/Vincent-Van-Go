@@ -22,7 +22,7 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
     # get params
     if @listing.save
-      redirect_to listing_path(@listing)
+      redirect_to listing_path(@listing), notice: "You've successfully created a new listing for your Van 🚗 "
     end
     # redirect to new listing page
     #
