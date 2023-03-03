@@ -72,6 +72,7 @@
     <div class="listing__actions">
       <%= link_to 'Edit', listing_edit_path(@listing), class: 'button button--edit' %>
       <%= link_to 'Delete', listing_path(@listing), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'button button--delete' %>
+      <% if current_user.id == @listing.user_id %><%= link_to 'See Bookings',  all_bookings_path(@listing) %><% end %>
     </div>
   </div>
   <div class="listing booking-card">
@@ -86,7 +87,6 @@
         <%= f.submit class:'book-btn' %>
       <% end %>
     <%# <%= link_to 'Request Booking',  bookings_path(@listing) %>
-      <% if current_user.id == @listing.user_id %><%= link_to 'See Bookings',  all_bookings_path(@listing) %><% end %>
       <p>You won't be charged now</p>
   </div>
 </div>
