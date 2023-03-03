@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get 'listings/:id', to: 'listings#show', as: 'listing'
   get 'listings/:id/reviews', to: 'reviews#index', as: 'listing_reviews'
   get 'listings/:id/reviews/new', to: 'reviews#new', as: 'new_listing_review'
-  post 'listings/:id/reviews', to: 'reviews#create', as: 'listing_reviews'
+  post 'listings/:id/reviews', to: 'reviews#create', as: 'create_reviews'
   get 'listings/:id/edit', to: 'listings#edit', as: 'listing_edit'
   patch 'listings/:id', to: 'listings#update'
   delete 'listings/:id', to: 'listings#destroy'
@@ -27,4 +27,3 @@ Rails.application.routes.draw do
   post 'listings/:id/bookings', to: 'bookings#create', as: 'listing_bookings'
   delete 'listings/:id/bookings', to: 'bookings#destroy', as: 'delete_bookings'
 end
-

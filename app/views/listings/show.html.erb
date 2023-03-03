@@ -25,26 +25,26 @@
     </div>
 
 
-<div>
-  <h1>All Reviews</h1>
-  <% if @listing.reviews.blank? %>
-    Be the first to leave a review for <%= @listing.title %>
-  <% else %>
-    <% @listing.reviews.each do |review| %>
-    <div style="background-color: #8c8634">
-      <p><%= review.content %></p>
-      <p>by <%= User.find(review.user_id).email %></p>
-    </div>
+  <div>
+    <h1>All Reviews</h1>
+    <% if @listing.reviews.blank? %>
+      Be the first to leave a review for <%= @listing.title %>
+    <% else %>
+      <% @listing.reviews.each do |review| %>
+      <div style="background-color: #8c8634">
+        <p><%= review.content %></p>
+        <p>by <%= User.find(review.user_id).email %></p>
+      </div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 
-<%= simple_form_for([@listing, @review]) do |f| %>
-  <%= f.input :content %>
-  <%= f.hidden_field :listing_id, :value => @listing.id %>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%= f.button :submit %>
-<% end %>
+  <%= simple_form_for [@listing, @review] do |f| %>
+    <%= f.input :content %>
+    <%= f.hidden_field :listing_id, :value => @listing.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.button :submit %>
+  <% end %>
 
     <div class="listing__description" style="margin-bottom: 30px">
       <h1>Additional Features:</h1>
@@ -96,7 +96,6 @@
       <%= link_to 'my bookings',  my_bookings_path %>
       <% if current_user.id == @listing.user_id %><%= link_to 'See Bookings',  all_bookings_path(@listing) %><% end %>
     </div>
-
 
   </div>
   <div class="listing booking-card">
